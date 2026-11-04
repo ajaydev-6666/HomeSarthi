@@ -1,0 +1,926 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HomeSarthee | Your Finance Partner</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .hs-amort-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 18px 0;
+        }
+
+        .hs-amort-summary div {
+            padding: 12px;
+            background: #f3f5f8;
+            border-radius: 10px;
+        }
+
+        .hs-amort-summary span {
+            display: block;
+            font-size: 12px;
+            color: #687386;
+            margin-bottom: 5px;
+        }
+
+        .hs-amort-summary strong {
+            font-size: 16px;
+            color: #17243b;
+        }
+
+        .hs-amortization {
+            margin-top: 22px;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #e4e8ef;
+            border-radius: 14px;
+        }
+
+        .hs-amort-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .hs-amortization .hs-table-wrap {
+            overflow: auto;
+            max-height: 420px;
+        }
+
+        .hs-amortization .hs-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 560px;
+        }
+
+        .hs-amortization th,
+        .hs-amortization td {
+            padding: 11px 12px;
+            text-align: right;
+            border-bottom: 1px solid #e9edf2;
+            white-space: nowrap;
+        }
+
+        .hs-amortization th:first-child,
+        .hs-amortization td:first-child {
+            text-align: left;
+        }
+
+        /* Private application tracker */
+
+        .hs-private-tracker {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 30px;
+            background: #fff;
+            border: 1px solid #e6ebf2;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(16,36,59,.06);
+        }
+
+        .hs-track-field {
+            margin-bottom: 20px;
+        }
+
+        .hs-track-field label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .hs-track-field input {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #dce3ed;
+            border-radius: 8px;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .hs-track-field input:focus {
+            border-color: #2457d6;
+            box-shadow: 0 0 0 3px rgba(36,87,214,.1);
+        }
+
+        .hs-track-btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .hs-track-result {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f4f7fc;
+            border: 1px solid #e2e9f3;
+            border-radius: 10px;
+            font-size: 13px;
+        }
+
+        .hs-track-result p {
+            margin: 7px 0;
+        }
+
+        @media(max-width:600px) {
+            .hs-amort-head {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .hs-amort-summary {
+                gap: 8px;
+            }
+
+            .hs-private-tracker {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body class="hs-user-page">
+
+<!-- HEADER -->
+
+<header class="hs-header">
+    <div class="hs-container hs-nav">
+
+        <a class="hs-brand" href="user.html">
+            <img
+                src="homee.png"
+                alt="HomeSarthee Logo"
+                class="hs-brand-logo"
+            >
+        </a>
+
+        <nav class="hs-nav-links">
+            <a href="#home">Home</a>
+            <a href="#loan-options">Loan options</a>
+            <a href="#calculator">EMI calculator</a>
+            <a href="#my-applications">Track Application</a>
+            <a href="#contact-us">Contact Us</a>
+        </nav>
+
+        <a class="hs-nav-cta" href="#apply">
+            Apply now <span>→</span>
+        </a>
+
+    </div>
+</header>
+
+<main>
+
+<!-- HERO SECTION -->
+
+<section class="hs-hero" id="home">
+    <div class="hs-container hs-hero-grid">
+
+        <div class="hs-hero-copy">
+
+            <span class="hs-eyebrow">
+                YOUR FINANCIAL JOURNEY, MADE SIMPLER
+            </span>
+
+            <h1>
+                Big dreams deserve<br>
+                <em>better support.</em>
+            </h1>
+
+            <p>
+                Explore loan options for your next big step.
+                Compare your needs, estimate your EMI and send an enquiry —
+                all in one place.
+            </p>
+
+            <div class="hs-hero-actions">
+
+                <a class="hs-primary-btn" href="#loan-options">
+                    Explore loans <span>→</span>
+                </a>
+
+                <a class="hs-text-link" href="#how-it-works">
+                    How it works
+                </a>
+
+            </div>
+
+            <div class="hs-trust-row">
+                <span>✓ Multiple loan options</span>
+                <span>✓ Simple EMI estimate</span>
+                <span>✓ Application tracking</span>
+            </div>
+
+        </div>
+
+        <div class="hs-hero-card">
+
+            <div class="hs-card-top">
+                <span class="hs-mini-label">HOMESARTHEE FINANCE TOOLS</span>
+                <span class="hs-spark">✦</span>
+            </div>
+
+            <h2>Plan your next move.</h2>
+
+            <p>
+                Start with a quick estimate of your monthly repayment.
+            </p>
+
+            <div class="hs-mini-stat">
+                <span>Flexible loan options</span>
+                <strong>One simple place</strong>
+            </div>
+
+            <div class="hs-mini-stat">
+                <span>Know before you apply</span>
+                <strong>Estimate your EMI</strong>
+            </div>
+
+            <a href="#calculator" class="hs-card-link">
+                Open EMI calculator ↗
+            </a>
+
+            <div class="hs-card-decoration">H</div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- LOAN OPTIONS -->
+
+<section class="hs-section" id="loan-options">
+    <div class="hs-container">
+
+        <div class="hs-section-heading">
+            <span class="hs-eyebrow dark">LOAN SOLUTIONS</span>
+            <h2>What are you planning for?</h2>
+            <p>Choose a category to start your loan enquiry.</p>
+        </div>
+
+        <div class="hs-loan-grid">
+
+            <article class="hs-loan-card">
+                <div class="hs-loan-icon">👤</div>
+                <h3>Personal Loan</h3>
+                <p>For personal expenses, planned purchases and important moments.</p>
+                <button type="button" class="hs-card-action" data-loan="Personal Loan">
+                    Explore option →
+                </button>
+            </article>
+
+            <article class="hs-loan-card">
+                <div class="hs-loan-icon">🏠</div>
+                <h3>Home Loan</h3>
+                <p>Explore financing for buying, building or renovating a home.</p>
+                <button type="button" class="hs-card-action" data-loan="Home Loan">
+                    Explore option →
+                </button>
+            </article>
+
+            <article class="hs-loan-card">
+                <div class="hs-loan-icon">🚗</div>
+                <h3>Car Loan</h3>
+                <p>Plan your vehicle purchase with an estimated monthly EMI.</p>
+                <button type="button" class="hs-card-action" data-loan="Car Loan">
+                    Explore option →
+                </button>
+            </article>
+
+            <article class="hs-loan-card">
+                <div class="hs-loan-icon">🎓</div>
+                <h3>Education Loan</h3>
+                <p>Explore support for tuition and education expenses.</p>
+                <button type="button" class="hs-card-action" data-loan="Education Loan">
+                    Explore option →
+                </button>
+            </article>
+
+            <article class="hs-loan-card">
+                <div class="hs-loan-icon">🏢</div>
+                <h3>Business Loan</h3>
+                <p>Explore funding options for working capital and expansion.</p>
+                <button type="button" class="hs-card-action" data-loan="Business Loan">
+                    Explore option →
+                </button>
+            </article>
+
+            <article class="hs-loan-card">
+                <div class="hs-loan-icon">💳</div>
+                <h3>Loan Against Property</h3>
+                <p>Learn about secured borrowing against eligible property.</p>
+                <button type="button" class="hs-card-action" data-loan="Loan Against Property">
+                    Explore option →
+                </button>
+            </article>
+
+            <article class="hs-loan-card">
+                <div class="hs-loan-icon">🛡️</div>
+                <h3>Life Insurance</h3>
+                <p>Protect today. Secure tomorrow.</p>
+                <button type="button" class="hs-card-action" data-loan="Life Insurance">
+                    Explore option →
+                </button>
+            </article>
+
+            <article class="hs-loan-card">
+                <div class="hs-loan-icon">🏥</div>
+                <h3>General Insurance</h3>
+                <p>Protect your assets and secure your future.</p>
+                <button type="button" class="hs-card-action" data-loan="General Insurance">
+                    Explore option →
+                </button>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- EMI CALCULATOR -->
+
+<section class="hs-calculator-section" id="calculator">
+    <div class="hs-container hs-calc-layout">
+
+        <div class="hs-calc-intro">
+            <span class="hs-eyebrow dark">SMART PLANNING</span>
+
+            <h2>
+                Know your EMI<br>
+                before you apply.
+            </h2>
+
+            <p>
+                Adjust the loan amount, interest rate and tenure to get
+                an indicative monthly repayment estimate.
+            </p>
+
+            <div class="hs-calc-note">
+                ⓘ This is an estimate, not a loan offer.
+                Actual rates and charges depend on the lender.
+            </div>
+        </div>
+
+        <div class="hs-calculator">
+
+            <div class="hs-calc-field">
+                <label for="calcAmount">
+                    Loan amount
+                    <output id="calcAmountLabel">₹5,00,000</output>
+                </label>
+
+                <input
+                    id="calcAmount"
+                    type="range"
+                    min="50000"
+                    max="5000000"
+                    step="50000"
+                    value="500000"
+                >
+            </div>
+
+            <div class="hs-calc-field">
+                <label for="calcRate">
+                    Interest rate
+                    <output id="calcRateLabel">10.5%</output>
+                </label>
+
+                <input
+                    id="calcRate"
+                    type="range"
+                    min="5"
+                    max="24"
+                    step=".5"
+                    value="10.5"
+                >
+            </div>
+
+            <div class="hs-calc-field">
+                <label for="calcYears">
+                    Loan tenure
+                    <output id="calcYearsLabel">5 years</output>
+                </label>
+
+                <input
+                    id="calcYears"
+                    type="range"
+                    min="1"
+                    max="30"
+                    value="5"
+                >
+            </div>
+
+            <div class="hs-emi-result">
+
+                <span>Estimated monthly EMI</span>
+                <strong id="calcEmi">₹10,747</strong>
+
+                <small id="calcTotal">
+                    Total repayment: ₹6,44,820
+                </small>
+
+                <div class="hs-amort-summary">
+
+                    <div>
+                        <span>Loan principal</span>
+                        <strong id="calcPrincipal">₹5,00,000</strong>
+                    </div>
+
+                    <div>
+                        <span>Total interest</span>
+                        <strong id="calcInterest">₹1,44,820</strong>
+                    </div>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="hs-primary-btn hs-schedule-toggle"
+                    id="toggleSchedule"
+                    aria-expanded="false"
+                >
+                    View amortization breakup
+                </button>
+
+            </div>
+
+            <div class="hs-amortization" id="amortizationPanel" hidden>
+
+                <div class="hs-amort-head">
+                    <div>
+                        <h3>Month-wise amortization schedule</h3>
+                        <p>See how each EMI is divided between principal and interest.</p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="hs-filter-reset"
+                        id="downloadSchedule"
+                    >
+                        Download CSV ↓
+                    </button>
+                </div>
+
+                <div class="hs-table-wrap">
+                    <table class="hs-table">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>EMI</th>
+                                <th>Principal</th>
+                                <th>Interest</th>
+                                <th>Balance</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="amortizationRows"></tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+
+<section class="hs-section hs-steps-section" id="how-it-works">
+    <div class="hs-container">
+
+        <div class="hs-section-heading">
+            <span class="hs-eyebrow dark">GETTING STARTED</span>
+            <h2>Three simple steps</h2>
+            <p>A clear starting point for exploring your borrowing options.</p>
+        </div>
+
+        <div class="hs-steps">
+
+            <article>
+                <b>01</b>
+                <h3>Choose your loan</h3>
+                <p>Select the loan category that matches your goal.</p>
+            </article>
+
+            <article>
+                <b>02</b>
+                <h3>Send an enquiry</h3>
+                <p>Share basic details so your requirement can be reviewed.</p>
+            </article>
+
+            <article>
+                <b>03</b>
+                <h3>Track your enquiry</h3>
+                <p>Use your Application ID and registered mobile number to check status.</p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- APPLICATION FORM -->
+
+<section class="hs-apply-section" id="apply">
+    <div class="hs-container hs-apply-layout">
+
+        <div class="hs-apply-copy">
+            <span class="hs-eyebrow">TAKE THE NEXT STEP</span>
+
+            <h2>Let's get your plans moving.</h2>
+
+            <p>
+                Share your requirement through our enquiry form.
+                You can use your Application ID to track its status.
+            </p>
+
+            <div class="hs-apply-points">
+                <span>✓ Quick enquiry form</span>
+                <span>✓ Application ID</span>
+                <span>✓ Private status tracking</span>
+            </div>
+        </div>
+
+        <form id="loanForm" class="hs-apply-form">
+
+            <h3>Start your enquiry</h3>
+            <p>All fields marked with * are required.</p>
+
+            <label for="fullName">Full name *</label>
+            <input
+                id="fullName"
+                name="fullName"
+                type="text"
+                placeholder="Enter your full name"
+                autocomplete="name"
+                required
+            >
+
+            <label for="mobile">Mobile number *</label>
+            <input
+                id="mobile"
+                name="mobile"
+                type="tel"
+                inputmode="numeric"
+                pattern="[0-9]{10}"
+                maxlength="10"
+                placeholder="10-digit mobile number"
+                required
+            >
+
+            <label for="email">Email ID </label>
+            <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Enter your email address"
+                autocomplete="email"
+               
+            >
+
+            <label for="loanType">Loan / Insurance type *</label>
+            <select id="loanType" name="loanType" required>
+                <option value="">Choose service type</option>
+                <option>Personal Loan</option>
+                <option>Home Loan</option>
+                <option>Car Loan</option>
+                <option>Education Loan</option>
+                <option>MSME</option>
+                <option>Life Insurance</option>
+                <option>Business Loan</option>
+                <option>Loan Against Property</option>
+                <option>General Insurance</option>
+            </select>
+
+            <label for="loanAmount">Required amount (₹) *</label>
+            <input
+                id="loanAmount"
+                name="loanAmount"
+                type="number"
+                min="1000"
+                placeholder="e.g. 500000"
+                required
+            >
+
+            <label for="purpose">What is the requirement for?</label>
+            <textarea
+                id="purpose"
+                name="purpose"
+                rows="3"
+                placeholder="Tell us briefly about your requirement"
+            ></textarea>
+
+            <button class="hs-primary-btn hs-submit" type="submit">
+                Submit enquiry <span>→</span>
+            </button>
+
+            <small class="hs-form-note">
+                Your enquiry details will be used to process your request.
+            </small>
+
+        </form>
+    </div>
+</section>
+
+<!-- PRIVATE APPLICATION TRACKER -->
+
+<section class="hs-section hs-tracker-section" id="my-applications">
+    <div class="hs-container">
+
+        <div class="hs-section-heading">
+            <span class="hs-eyebrow dark">APPLICATION TRACKING</span>
+            <h2>Track Your Application</h2>
+            <p>Enter your application details to check your status.</p>
+        </div>
+
+        <div class="hs-private-tracker">
+
+            <form id="privateTrackForm">
+
+                <div class="hs-track-field">
+                    <label for="trackApplicationId">Application ID</label>
+                    <input
+                        type="text"
+                        id="trackApplicationId"
+                        name="applicationId"
+                        placeholder="Enter your Application ID"
+                        required
+                    >
+                </div>
+
+                <div class="hs-track-field">
+                    <label for="trackMobile">Registered Mobile Number</label>
+                    <input
+                        type="tel"
+                        id="trackMobile"
+                        name="mobile"
+                        placeholder="Enter 10-digit mobile number"
+                        maxlength="10"
+                        pattern="[0-9]{10}"
+                        inputmode="numeric"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="hs-primary-btn hs-track-btn">
+                    Check Application Status →
+                </button>
+
+            </form>
+
+            <div
+                id="privateTrackResult"
+                class="hs-track-result"
+                role="status"
+                aria-live="polite"
+                hidden
+            ></div>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- TOAST -->
+
+<div
+    class="hs-toast"
+    id="hsToast"
+    role="status"
+    aria-live="polite"
+></div>
+
+<!-- FOOTER -->
+
+<footer class="hs-footer">
+
+    <div class="hs-container hs-footer-inner">
+
+        <a class="hs-logo light" href="#home">
+            Home<span>Sarthee</span><i>.</i>
+        </a>
+
+        <p>Your dreams. Our financial guidance.</p>
+
+        <div>
+            <a href="#loan-options">Loan options</a>
+            <a href="#calculator">EMI calculator</a>
+            <a href="#contact-us">Contact Us</a>
+        </div>
+
+    </div>
+
+    <!-- CONTACT INFORMATION -->
+
+    <div class="hs-container hs-contact-info" id="contact-us">
+
+        <h3>Contact Us</h3>
+
+        <div class="hs-contact-grid">
+
+            <div>
+                <span>📞 Phone:</span>
+                <a href="tel:+9195981069">+91 9598101069</a>
+            </div>
+
+            <div>
+                <span>✉️ Email:</span>
+                <a href="mailto:homesarthi2026@gmail.com">
+                    homesarthi2026@gmail.com
+                </a>
+            </div>
+
+            <div>
+                <span>📍 Office Address</span>
+                <p>Lucknow, Uttar Pradesh, India</p>
+            </div>
+
+            <div>
+                <span>🕒 Working Hours</span>
+                <p>10 AM to 10 PM Every Day</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- DISCLAIMER -->
+
+    <div class="hs-container hs-disclaimer">
+        © 2026 HomeSarthee. All Rights Reserved.
+
+        HomeSarthee provides financial information, loan assistance and
+        application facilitation services. Loan approval, interest rates,
+        eligibility and disbursement are subject to the respective bank
+        or financial institution's policies and approval.
+    </div>
+
+</footer>
+
+
+
+<script>
+    // EMI Calculator
+
+    const hsMoney = n =>
+        "₹" + Math.round(n).toLocaleString("en-IN");
+
+    let hsAmortizationData = [];
+
+    function updateHsEmi() {
+
+        const p = Number(document.getElementById("calcAmount").value);
+        const annual = Number(document.getElementById("calcRate").value);
+        const years = Number(document.getElementById("calcYears").value);
+
+        const monthlyRate = annual / 1200;
+        const months = years * 12;
+
+        const emi = monthlyRate === 0
+            ? p / months
+            : p * monthlyRate * Math.pow(1 + monthlyRate, months) /
+              (Math.pow(1 + monthlyRate, months) - 1);
+
+        document.getElementById("calcAmountLabel").textContent = hsMoney(p);
+        document.getElementById("calcRateLabel").textContent = annual + "%";
+        document.getElementById("calcYearsLabel").textContent = years + " years";
+
+        document.getElementById("calcEmi").textContent = hsMoney(emi);
+
+        document.getElementById("calcTotal").textContent =
+            "Total repayment: " + hsMoney(emi * months);
+
+        let balance = p;
+        let totalInterest = 0;
+
+        hsAmortizationData = [];
+
+        for (let month = 1; month <= months; month++) {
+
+            const interest = balance * monthlyRate;
+            let principal = emi - interest;
+
+            if (month === months || principal > balance) {
+                principal = balance;
+            }
+
+            balance = Math.max(0, balance - principal);
+            totalInterest += interest;
+
+            hsAmortizationData.push({
+                month,
+                emi: principal + interest,
+                principal,
+                interest,
+                balance
+            });
+        }
+
+        document.getElementById("calcPrincipal").textContent = hsMoney(p);
+
+        document.getElementById("calcInterest").textContent =
+            hsMoney(totalInterest);
+
+        document.getElementById("amortizationRows").innerHTML =
+            hsAmortizationData.map(row => `
+                <tr>
+                    <td>${row.month}</td>
+                    <td>${hsMoney(row.emi)}</td>
+                    <td>${hsMoney(row.principal)}</td>
+                    <td>${hsMoney(row.interest)}</td>
+                    <td>${hsMoney(row.balance)}</td>
+                </tr>
+            `).join("");
+    }
+
+    ["calcAmount", "calcRate", "calcYears"].forEach(id => {
+        document.getElementById(id).addEventListener("input", updateHsEmi);
+    });
+
+    document.getElementById("toggleSchedule").addEventListener("click", () => {
+
+        const panel = document.getElementById("amortizationPanel");
+        const isHidden = panel.hidden;
+
+        panel.hidden = !isHidden;
+
+        document.getElementById("toggleSchedule").textContent =
+            isHidden
+                ? "Hide amortization breakup"
+                : "View amortization breakup";
+
+        document.getElementById("toggleSchedule")
+            .setAttribute("aria-expanded", String(isHidden));
+    });
+
+    document.getElementById("downloadSchedule").addEventListener("click", () => {
+
+        const rows = [
+            [
+                "Month",
+                "EMI",
+                "Principal",
+                "Interest",
+                "Outstanding Balance"
+            ],
+            ...hsAmortizationData.map(row => [
+                row.month,
+                row.emi.toFixed(2),
+                row.principal.toFixed(2),
+                row.interest.toFixed(2),
+                row.balance.toFixed(2)
+            ])
+        ];
+
+        const csv = rows.map(row => row.join(",")).join("\n");
+
+        const blob = new Blob(
+            ["\uFEFF" + csv],
+            { type: "text/csv;charset=utf-8;" }
+        );
+
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+
+        link.href = url;
+        link.download = "HomeSarthee-EMI-Amortization.csv";
+        link.click();
+
+        URL.revokeObjectURL(url);
+    });
+
+    updateHsEmi();
+
+    // Loan category selection
+
+    document.querySelectorAll("[data-loan]").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            document.querySelectorAll(".hs-loan-card")
+                .forEach(card => card.classList.remove("is-selected"));
+
+            button.closest(".hs-loan-card")
+                .classList.add("is-selected");
+
+            document.getElementById("loanType").value =
+                button.dataset.loan;
+
+            document.getElementById("apply")
+                .scrollIntoView({ behavior: "smooth" });
+        });
+
+    });
+
+
+</script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

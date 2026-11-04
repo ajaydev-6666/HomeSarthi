@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeSarthi | Admin Panel</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page admin-page">
+  <aside class="sidebar admin-sidebar">
+    <a class="brand" href="index.html">Home<span>Sarthi</span>.</a>
+    <p class="side-label">ADMINISTRATION</p>
+    <a class="side-link active" href="admin.html">▦ &nbsp; Overview</a>
+    <a class="side-link" href="#allApplications">▤ &nbsp; Loan Applications</a>
+    <a class="side-link" href="#quickActions">⚙ &nbsp; Quick actions</a>
+    <a class="side-link" href="user.html">♙ &nbsp; User Panel</a>
+    <a class="side-link" href="index.html">↩ &nbsp; Back to Website</a>
+    <div class="sidebar-bottom"><span class="avatar admin-avatar">A</span><div><b>Demo Admin</b><small>Administrator preview</small></div></div>
+  </aside>
+
+  <main class="main-content">
+
+    <section class="content-card" id="adminLogin">
+  <h2>Admin Login</h2>
+  <p>Sign in to manage customer applications.</p>
+
+  <form id="adminLoginForm">
+    <label for="adminEmail">Email</label>
+    <input id="adminEmail" type="email" required
+           placeholder="Admin email">
+
+    <label for="adminPassword">Password</label>
+    <input id="adminPassword" type="password" required
+           placeholder="Admin password">
+
+    <button class="btn btn-primary" type="submit">
+      Login
+    </button>
+    <p id="adminLoginMessage" role="status"></p>
+  </form>
+</section>
+
+    <header class="topbar" hidden><div><p class="eyebrow">ADMIN CONTROL CENTER</p><h1>Admin Dashboard</h1><p class="topbar-sub">Manage customer loan enquiries in this demo.</p></div><span class="admin-tag">ADMIN PREVIEW</span></header>
+    <section class="stats-grid" hidden>
+      <article class="stat-card"><span class="stat-icon blue">▤</span><p>Total applications</p><h2 id="adminTotal">0</h2></article>
+      <article class="stat-card"><span class="stat-icon amber">◷</span><p>Pending review</p><h2 id="adminPending">0</h2></article>
+      <article class="stat-card"><span class="stat-icon green">✓</span><p>Approved</p><h2 id="adminApproved">0</h2></article>
+      <article class="stat-card"><span class="stat-icon red">×</span><p>Rejected</p><h2 id="adminRejected">0</h2></article>
+    </section>
+
+    <section class="content-card" id="allApplications" hidden>
+      <div class="card-heading responsive-heading"><div><h2>Loan applications</h2><p>Review enquiries and update their demo status.</p></div><button class="btn btn-light" id="refreshBtn" type="button">↻ Refresh</button></div>
+      <div class="toolbar"><input id="searchInput" type="search" placeholder="Search by name, ID or loan type"><select id="statusFilter"><option value="All">All statuses</option><option>Pending</option><option>Approved</option><option>Rejected</option></select></div>
+      <div class="table-wrap"><table><thead><tr><th>Application</th><th>Customer</th><th>Loan type</th><th>Amount</th><th>Submitted</th><th>Status</th><th>Action</th></tr></thead><tbody id="adminApplications"><tr><td colspan="7" class="empty">No applications yet. Submit one from the User Panel.</td></tr></tbody></table></div>
+    </section>
+
+    <section class="content-card" id="quickActions" hidden>
+      <div class="card-heading"><div><h2>Quick actions</h2><p>Useful shortcuts for testing this frontend demo.</p></div></div>
+      <div class="quick-actions">
+  <button class="btn btn-outline" id="exportBtn" type="button">
+    ↓ Export CSV
+  </button>
+</div>
+      <p class="helper">Admin actions are not protected by login in this static demo. Add server-side authentication and role permissions before deployment.</p>
+    </section>
+    <footer class="dashboard-footer" hidden[]>© 2026 HomeSarthi. Demo admin portal.</footer>
+  </main>
+ <script type="module" src="js/app.js"></script>
+</body>
+</html>
